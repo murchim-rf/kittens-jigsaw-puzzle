@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="icon" type="image/png" href="https://murchim.ru/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="https://murchim.ru/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://murchim.ru/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" sizes="57x57" href="https://murchim.ru/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://murchim.ru/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://murchim.ru/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://murchim.ru/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://murchim.ru/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://murchim.ru/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://murchim.ru/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://murchim.ru/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://murchim.ru/apple-touch-icon-180x180.png">
+<title>Котята пазлы | МУРЧИМ.РФ | Прикрепление</title>
+<style>
+:root {
+  --color:lightgray;
+  --border-radius:10px;
+  --image:url('https://murchim.ru/koto-tema/images/2020/kp/kotiata-pazly-6.jpg');
+}
+
+body {
+  background:#efefef;
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
+
+#puz, #puzz {
+  position:absolute;
+  border-radius:var(--border-radius) 0 var(--border-radius) 0;    
+  user-select:none;
+}
+#puz {
+  width:300px;
+  height:300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border:3px dashed lightgray;
+  overflow:hidden;
+}
+#puzz {
+  left:0;
+  top:0;
+  border:0;
+}
+
+#puz i {
+  float:left;
+  width:100px;
+  height:100px;
+  outline:1px dashed lightgray;
+}
+
+#puzz i {
+  position:absolute;
+  width:100px;
+  height:100px;
+  background:var(--color);
+  background-image:var(--image);
+  background-size:300px 300px;
+  cursor:move;
+  box-shadow:0 0 10px rgba(0,0,0,.25);
+}
+
+.first {
+  border-top-left-radius:var(--border-radius);
+  background-position:left top !important;
+}
+.secon {
+  background-position:center top !important;
+}
+.third {
+  background-position:right top !important;
+}
+.fourt {
+  background-position:left center !important;
+}
+.fifth {
+  background-position:center center !important;
+}
+.sixth {  
+  background-position:right center !important;
+}
+.seven {
+  background-position:left bottom !important;
+}
+.eight {
+  background-position:center bottom !important;
+}
+.ninth {
+  border-bottom-right-radius:var(--border-radius);
+  background-position:right bottom !important;
+}
+
+.clicked {
+  box-shadow:0 0 0 4px gray !important;
+}
+
+.dropped {
+  background:var(--color);
+  background-image:var(--image);
+  background-size:300px 300px;
+}
+.done {
+  opacity:0;
+  pointer-events:none;
+}
+
+.allDone {
+  animation:allDone 1s linear forwards;
+  border:3px solid lightgray !important;
+}
+.allDone i {
+  outline:0 !important;
+}
+
+@keyframes allDone {
+  50% { transform:translate(-50%,-50%) scale(1.2); }
+}
+
+#clicks {
+  font-size:8px;
+  font-family:monospace;
+  position:absolute;
+  bottom:5px;
+  right:5px;
+}
+</style>
+</head>
+<body>
+
+<div id='puz_box'>
+  <div id='puz'>
+    <i class='first' ondrop='drop(event)' ondragover='allowDrop(event)' ></i>
+    <i class='secon' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='third' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='fourt' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='fifth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='sixth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='seven' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='eight' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+    <i class='ninth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+  </div>
+  <div id='puzz'>
+    <i class='third' draggable='true' ondragstart='drag(event)'></i>
+    <i class='first' draggable='true' ondragstart='drag(event)'></i>
+    <i class='secon' draggable='true' ondragstart='drag(event)'></i>
+    <i class='fourt' draggable='true' ondragstart='drag(event)'></i>
+    <i class='fifth' draggable='true' ondragstart='drag(event)'></i>
+    <i class='sixth' draggable='true' ondragstart='drag(event)'></i>
+    <i class='seven' draggable='true' ondragstart='drag(event)'></i>
+    <i class='eight' draggable='true' ondragstart='drag(event)'></i>
+    <i class='ninth' draggable='true' ondragstart='drag(event)'></i>  
+  </div>
+</div>
+<div id='clicks'>0</div>
+
+<script src="https://murchim.ru/koto-tema/js/2020/kp/kotiata-pazly.js"></script>
+
+<script src="https://murchim.ru/js/ads.js"></script>
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(54613141, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/54613141" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144632176-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'UA-144632176-1');
+</script>
+</body>
+</html>
